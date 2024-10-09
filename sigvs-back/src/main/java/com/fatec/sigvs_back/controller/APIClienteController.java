@@ -20,7 +20,7 @@ import com.fatec.sigvs_back.servico.IClienteServico;
 @RestController
 @CrossOrigin
 @RequestMapping("/api/v1/clientes")
-public class ClienteController {
+public class APIClienteController {
 	@Autowired
 	IClienteServico servico;
 
