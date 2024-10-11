@@ -32,14 +32,14 @@ public class ClienteServico implements IClienteServico {
 	public Optional<Cliente> cadastrar(Cliente cliente) {
 		
 		cliente.setDataCadastro();
-		String endereco = obtemEndereco(cliente.getCep());
+		Optional<String> endereco = Optional.ofNullable(obtemEndereco(cliente.getCep()));
 		
-		if (endereco.equals(null)) {
+		if (endereco.isEmpty()) {
 			return Optional.empty();
 
 		} else {
 			logger.info(">>>>>> endereço ok comando save chamado ");
-			cliente.setEndereco(endereco);
+			cliente.setEndereco(endereco.get());
 			return Optional.ofNullable(repository.save(cliente));
 		}
 
