@@ -1,6 +1,6 @@
 package com.fatec.sigvs_back.servico;
 
-import java.time.LocalDate;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -93,7 +93,7 @@ public class ClienteServico implements IClienteServico {
 				return null;
 			}
 		} catch (HttpClientErrorException e) {
-			logger.info(">>>>>> erro retornado pela api");
+			logger.info(">>>>>> erro não esperado - retornado pela api");
 			return null;
 		}
 	}

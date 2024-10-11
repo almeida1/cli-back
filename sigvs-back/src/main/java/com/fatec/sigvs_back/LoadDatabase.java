@@ -1,6 +1,5 @@
 package com.fatec.sigvs_back;
 
-import java.util.Arrays;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

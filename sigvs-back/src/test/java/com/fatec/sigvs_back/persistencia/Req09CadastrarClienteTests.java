@@ -1,7 +1,6 @@
 package com.fatec.sigvs_back.persistencia;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -49,7 +48,7 @@ class Req09CadastrarClienteTests {
 		String cpf = "8396524807";
 		try {
 			// quando confirmo o cadastro do cliente
-			Cliente cliente1 = new Cliente(cpf, "Jose da Silva",  "01304-000");
+			 new Cliente(cpf, "Jose da Silva",  "01304-000");
 			// entao retorna cpf invalido
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
