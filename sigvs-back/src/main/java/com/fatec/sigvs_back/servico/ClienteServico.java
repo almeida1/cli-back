@@ -1,6 +1,5 @@
 package com.fatec.sigvs_back.servico;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -30,17 +29,22 @@ public class ClienteServico implements IClienteServico {
 
 	@Override
 	public Optional<Cliente> cadastrar(Cliente cliente) {
-		
+
 		cliente.setDataCadastro();
 		Optional<String> endereco = Optional.ofNullable(obtemEndereco(cliente.getCep()));
-		
+
 		if (endereco.isEmpty()) {
 			return Optional.empty();
 
 		} else {
 			logger.info(">>>>>> endereço ok comando save chamado ");
-			cliente.setEndereco(endereco.get());
-			return Optional.ofNullable(repository.save(cliente));
+			try {
+				cliente.setEndereco(endereco.get());
+				return Optional.ofNullable(repository.save(cliente));
+			} catch (Exception e) {
+				logger.info(">>>>>> clienteservico - erro metodo cadastrar comando save ");
+				return Optional.empty();
+			}
 		}
 
 	}
@@ -67,7 +71,6 @@ public class ClienteServico implements IClienteServico {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 	public String obtemEndereco(String cep) {
 		RestTemplate template = new RestTemplate();
