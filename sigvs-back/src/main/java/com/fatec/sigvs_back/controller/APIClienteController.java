@@ -30,11 +30,10 @@ public class APIClienteController {
 	}
 
 	@PostMapping
-	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Cliente> cadastraCliente(@RequestBody Cliente cliente) {
 		Optional<Cliente> c = servico.cadastrar(cliente);
 		if (c.isEmpty()) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+			return ResponseEntity.status(HttpStatus.OK).build();
 		} else {
 			return ResponseEntity.status(HttpStatus.CREATED).body(c.get());
 		}

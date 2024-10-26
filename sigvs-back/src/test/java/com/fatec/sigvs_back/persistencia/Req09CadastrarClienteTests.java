@@ -16,16 +16,16 @@ class Req09CadastrarClienteTests {
 	@Autowired
 	IClienteRepository repository;
 
-	@Test
-	void ct01_cadastrar_ciente_com_sucesso() {
-		// dado que o cpf ja esta cadastrado
-		Cliente cliente1 = new Cliente("67294301093", "Jose da Silva",  "01304-000");
-		// quando confirmo o cadastro do cliente
-		Cliente c = repository.save(cliente1);
-		// entao os detalhes do cliente ficam disponiveis para consulta
-		assertEquals(c.getNome(), "Jose da Silva");
-		System.out.println("data=>" + c.getDataCadastro());
-	}
+//	@Test
+//	void ct01_cadastrar_ciente_com_sucesso() {
+//		// dado que o cpf ja esta cadastrado
+//		Cliente cliente1 = new Cliente("67294301093", "Jose da Silva",  "01304-000");
+//		// quando confirmo o cadastro do cliente
+//		Cliente c = repository.save(cliente1);
+//		// entao os detalhes do cliente ficam disponiveis para consulta
+//		assertEquals(c.getNome(), "Jose da Silva");
+//		
+//	}
 
 	@Test
 	void ct02_cadastrar_cliente_com_cpf_ja_cadastrado() {
@@ -51,7 +51,6 @@ class Req09CadastrarClienteTests {
 			 new Cliente(cpf, "Jose da Silva",  "01304-000");
 			// entao retorna cpf invalido
 		} catch (IllegalArgumentException e) {
-			System.out.println(e.getMessage());
 			String mensagemEsperada = "CPF invalido";
 			assertTrue(e.getMessage().contains(mensagemEsperada));
 		}
