@@ -96,7 +96,7 @@ public class ClienteServico implements IClienteServico {
 				return null;
 			}
 		} catch (HttpClientErrorException e) {
-			logger.info(">>>>>> erro não esperado - retornado pela api");
+			logger.info(">>>>>> erro retornado pela api viacep");
 			return null;
 		}
 	}
